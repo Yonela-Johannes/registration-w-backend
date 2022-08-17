@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Orbitron&display=swap"
+        rel="stylesheet">
+    <title>Registration Numbers</title>
+    <meta name="decription"
+        content="A codeX curruriculum challenge check and let applicant learn more about the localStorage, filtering data, finding data, refactoring functions and the usage if Regex." />
+</head>
+
+<body>
+    <div class="header">
+        <!-- Header and Logo -->
+        <span class="reg">Registration</span><span class="app">App</span>
+    </div>
+    <!-- main container -->
+    <div class="main-container">
+        <div class="container">
+            <div class="error-handling-wrapper">
+                <div class="error-handling">{{errorhandler}}</div>
+            </div>
+            <!-- Main content wrapper -->
+            <form action="/" method="POST">
+                <div class="wrapper">
+                    <div class="head">
+                        <h1 class="header-title">Registration</h1>
+                    </div>
+                    <div class="box">
+                        <h4 class="title">Registration:</h4>
+                        <div class="input-container">
+                            <input class="reg-input" placeholder="Enter registation number" type="text" name="text" />
+                        </div>
+                        <div class="buttons">
+                            <button type='submit' class="button add-number">Add</button>
+                        </div>
+                    </div>
+                    <!-- town list selection -->
+                    <div class="bottom-box">
+                        <h1 class="town-select">
+                            Towns
+                        </h1>
+                        <select type="text" name="name" id="regno">
+                            <option disabled value="select town" selected>Select Town</option>
+                            <button class="button add-number" type="submit" value="ca">
+                                <option name="town" class="town" value="ca">Cape Town</option>
+                            </button>
+                            <option name="town" class="town" value="cl">Stellenbosch</option>
+                            <option name="town" class="town" value="cy">Bellville</option>
+                            <option name="town" class="town" value="cf">Kuils River</option>
+                            <option name="town" class="town" value="cn">Wellington</option>
+                            <option name="town" class="town" value="ck">Malmesbury</option>
+                            <option name="town" class="town" value="cw">Worcester</option>
+                            <option name="town" class="town" value="ct">Ceres</option>
+                            <option name="town" class="town" value="caw">George</option>
+                            <option value="refresh">Display All</option>
+                        </select>
+                    </div>
+            </form>
+            <!-- Display town section -->
+            <div class="bottom-container">
+                <h1 class="town-name">Registration numbers</h1>
+                <div class="filter-bottom-wrapper">
+                    <div class="registration">
+                        {{#each registrationNumbers}}
+                        <div class="number-plate">
+                            <span class="filter-plate-inner-box">
+                                {{regno}}
+                            </span>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="bottom-wrapper">
+                    <h1 class="town-name display-name"></h1>
+                    <form action="/clear" method="POST">
+                        <div class="buttons reset-button">
+                            <button type="submit" class="button reset-numbers">Clear</button>
+                        </div>
+                    </form>
+                    <div class="footer">
+                        <span class="total">Total registrations: <span class="counter"></span></span>
+                        <span class="limit">limit: 20</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
