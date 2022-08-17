@@ -1,4 +1,4 @@
-CREATE TABLE registration (
+CREATE TABLE regnumbers (
     ID SERIAL PRIMARY KEY,
     regno VARCHAR(10) NOT NULL,
 )
