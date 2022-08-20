@@ -66,10 +66,15 @@ const Routes = (registrationDb, registration) => {
         const { search } = req.body
         const towns = await registrationDb.getTowns()
         const numbers = await registrationDb.searchAll(search)
+        const error = !search ? 'Enter search!!' : ''
+        const success = search ? `Searching for ${search}` : ''
+        console.log(error)
         res.render('index', {
             townName: search,
             towns,
             registrationNumbers: numbers,
+            errorhandler: error,
+            successhandler: success
         })
     }
 
