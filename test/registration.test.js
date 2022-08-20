@@ -24,7 +24,7 @@ describe('Registration Test', () => {
             registration.setNumber(text)
             const validatedReg = registration.getValidReg()
             const id = registration.splitRegistration()
-            registration.getValidReg() && registration.checkReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
             const numbers = await registrationDb.getNumbers()
             assert.deepEqual([], numbers)
         })
@@ -37,7 +37,7 @@ describe('Registration Test', () => {
             const validatedReg = registration.getValidReg()
             const number = await registrationDb.getNumber(validatedReg)
             const id = registration.splitRegistration()
-            registration.getValidReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
             const numbers = await registrationDb.getNumbers()
             let result = [{ id: numbers[0].id, regno: 'CA 123', town_id: 1 }]
             assert.deepEqual([result], [numbers])
@@ -50,8 +50,8 @@ describe('Registration Test', () => {
             registration.setNumber(text)
             const validatedReg = registration.getValidReg()
             const id = registration.splitRegistration()
-            registration.getValidReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
-            registration.getValidReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
             const numbers = await registrationDb.getNumbers()
             let result = [{ id: numbers[0].id, regno: 'CA 123', town_id: 1 }]
             assert.deepEqual([result], [numbers])
@@ -81,35 +81,35 @@ describe('Registration Test', () => {
             registration.setNumber(text)
             let validatedReg = registration.getValidReg()
             let id = registration.splitRegistration()
-            registration.getValidReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
             // setting second number
             registration = RegistrationNumbers()
             text = 'ct 123'
             registration.setNumber(text)
             validatedReg = registration.getValidReg()
             id = registration.splitRegistration()
-            registration.getValidReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
             // setting third number
             registration = RegistrationNumbers()
             text = 'ct 123321'
             registration.setNumber(text)
             validatedReg = registration.getValidReg()
             id = registration.splitRegistration()
-            registration.getValidReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
             // setting fourth number
             registration = RegistrationNumbers()
             text = 'cn 123-321'
             registration.setNumber(text)
             validatedReg = registration.getValidReg()
             id = registration.splitRegistration()
-            registration.getValidReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
             // setting fourth number
             registration = RegistrationNumbers()
             text = 'ca 123321'
             registration.setNumber(text)
             validatedReg = registration.getValidReg()
             id = registration.splitRegistration()
-            registration.getValidReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
             let search = 'ct'
             let searchNumbers = await registrationDb.search(search)
             let result = [{ regno: 'CT 123' }, { regno: 'CT 123321' }]
