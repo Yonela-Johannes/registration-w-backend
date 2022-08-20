@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "nodemon": "nodemon index.js",
-    "test": "mocha /test/registration.test.js"
+    "test": "mocha"
   },
   "dependencies": {
     "assert": "^2.0.0",
