@@ -1,55 +1,81 @@
-*{
+* {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Montserrat Alternates', sans-serif;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
 .header {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    font-size: 25px;
+    justify-content: space-between;
+    font-size: 20px;
     font-family: 'Orbitron', sans-serif;
     background-color: rgb(238, 235, 235);
-    height: 50px;
+    width: 100%;
     letter-spacing: 6px;
-    padding-left: 10px;
     border-bottom: .3px solid black;
     justify-self: flex-start;
     justify-content: flex-start;
     place-self: start;
 }
 
-.header span{
-    border: 1px solid white;
+.header span {
     font-weight: bold;
+    cursor: pointer;
 }
-.header span.reg{
-    background-color: rgb(255, 200, 0);
-    border-radius: 15px 0 0;
+
+.header span.reg {
+    color: rgb(82, 82, 82);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
     padding: 5px;
     margin: 0;
 }
-.header span.app{
-    color:white;
-    background-color: rgb(96, 96, 96);
-    border-radius: 0 0 15px 0;
-    padding: 5px;
-    margin: 0;
+
+.header span.header-wrapper {
+    display: flex;
+    align-items: center;
+    color: black;
+    background-color: rgb(216, 156, 2);
+    border-radius: 50px;
+    letter-spacing: 2px;
+
 }
-.container{
+
+.header span.app {
+    color: rgb(255, 255, 255);
+    background-color: rgb(86, 86, 86);
+    border-radius: 50px;
+    padding: 3px;
+    margin-left: 15px;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.container {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: calc(100vh - 80px);
 }
-.input-container{
+
+.input-container {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,171 +83,211 @@
     text-align: center;
     border: 1px solid rgb(93, 93, 93);
     border-radius: 0;
+    width: 520px;
 }
-.wrapper h1{
+
+.wrapper h1 {
     font-size: 20px;
     letter-spacing: 5px;
     font-family: 'Orbitron', sans-serif;
 }
-.box{
+
+.box {
     display: flex;
     flex-direction: column;
-    margin: 20px 0;
+    margin: 5px 0;
     width: 100%;
     justify-content: center;
     align-items: center;
     background-color: rgb(228, 199, 145);
 }
-.bottom-box{
+
+.search-box {
+    /* display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(228, 199, 145); */
+    margin: 0 10px;
+}
+
+.bottom-box {
     display: flex;
     flex-direction: column;
     margin: 10x 0;
 }
-    .head{
-        background: rgb(228, 228, 228);
-        width: 100%;
-        border-radius: 0;
-        padding: 5px;
-    }
-    h1{
-        color: gray;
-        padding: 5px;
-    }
-    h1.header-title{
-        font-size: 22px;
-        color: gray;
-        margin-top: 10px;
-        padding: 5px;
-        border-bottom: 2px solid rgb(176, 176, 176);  
-    }
-    h4{
-        margin: 10px 0;
-    }
-    input{
-        color: black;
-        border-radius: 10px;
-        border: none;
-        padding: 7px;
-        margin: 5px 10px;
-        background-color:rgb(255, 255, 255);
-        align-self: center;
-    }
-     .button{
-         padding: 5px 10px;
-         border-radius: 5px;
-         border: .2px solid rgb(185, 185, 185);
-         transition: .2s ease-in;
-         cursor: pointer;
-         font-weight: bold;
-         background-color: rgb(231, 204, 114);
-    }
-    .button:hover{
-        background-color: transparent;
-        border-color: black;
-        box-shadow: none;
-    }
-    .bottom-box{
-        display: flex;
-        align-items: center;
-        border: .2px solid rgb(151, 151, 151);
-        border-radius: 10px;
-    }
-    select{
-        color: black;
-        border: none;
-        padding: 10px;
-        border-radius: 10px;
-         background-color: rgb(231, 204, 114);
-    }
-    .bottom-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 15px 0;
-    }
-    /* filtered plates */
-    .filter-plate-inner-box{
-        display: flex;
-        flex-wrap: wrap;
-        font-size: 15px;
-        font-weight: normal;
-    }
 
-    .registration{
-        width: 100%;
-    }
+.head {
+    background-color: rgb(62, 62, 61);
+    width: 100%;
+    border-radius: 0;
+    padding: 5px;
+}
 
-    .error-handling-wrapper{
-        position: absolute;
-        padding: 5px 8px;
-        top: 0;
-        margin-top: 20px;
-    }
-    .fail{
-        color: red;
-    } 
-    .success{
-        color: green;
-    }
-    .hide{
-        display: none;
-    }
-    .hidden{
-        display: none;
-    }
+h1 {
+    color: gray;
+    padding: 5px;
+}
 
-    .list {
-        margin: 2px;
-        border: 1px solid black;
-        border-radius: 5px;
-        padding: 3px;
-        background-color: rgb(216, 156, 2);
-    }
-    /* fitltered list */
-    .filterList {
-        margin: 10px;
-        border: 1px solid black;
-        border-radius: 5px;
-        background-color: rgb(190, 190, 188);
-    }
-    h1.town-name{
-        color: gray;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-    h1.town-select{
-        font-family: 'Courier New', Courier, monospace;
-        color: gray;
-        font-size: 14px;
-        letter-spacing: 2px;
-        text-align: center;
-        text-justify: auto;
-    }
-    .number-plate{
-        padding: 0 10px;
-    }
-@media screen and (min-width: 752px){
+h1.header-title {
+    font-size: 22px;
+    color: gray;
+    margin-top: 10px;
+    padding: 5px;
+    letter-spacing: 2px;
+}
+
+h4 {
+    margin: 10px 0;
+}
+
+input {
+    color: black;
+    border-radius: 10px;
+    border: none;
+    padding: 7px;
+    background-color: rgb(255, 255, 255);
+    align-self: center;
+}
+
+.button {
+    /* padding: 5px 10px; */
+    border-radius: 50px;
+    border: .2px solid rgb(185, 185, 185);
+    transition: .2s ease-in;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(231, 204, 114);
+}
+
+.button:hover {
+    background-color: transparent;
+    border-color: black;
+    box-shadow: none;
+}
+
+.bottom-box {
+    display: flex;
+    align-items: center;
+    border: .2px solid rgb(151, 151, 151);
+    border-radius: 50px;
+}
+
+select {
+    cursor: pointer;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: rgb(231, 204, 114);
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+/* filtered plates */
+.filter-plate-inner-box {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 15px;
+    font-weight: normal;
+    /* background-color: rgb(216, 156, 2); */
+}
+
+.error-handling {
+    color: red;
+}
+
+.success-handling {
+    color: green;
+}
+
+.fail {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.hide {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.list {
+    margin: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: rgb(216, 156, 2);
+}
+
+/* fitltered list */
+.filterList {
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(190, 190, 188);
+}
+
+h1.town-name {
+    color: gray;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1.town-select {
+    font-family: 'Courier New', Courier, monospace;
+    color: gray;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-justify: auto;
+}
+
+.number-plate {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 15px;
+    background-color: rgb(216, 156, 2);
+    border-radius: 50px;
+    border: .2px solid rgb(151, 151, 151);
+    padding: 2px;
+}
+
+@media screen and (min-width: 752px) {
     .main-container {
         display: flex;
         align-items: center;
         justify-content: space-around;
     }
+
     .header {
         font-size: 30px;
         font-family: 'Orbitron', sans-serif;
         background-color: rgb(62, 62, 61);
-        height: 80px;
+        padding: 10px 0;
         letter-spacing: 6px;
         padding-left: 10px;
         border-bottom: .3px solid black;
         justify-self: flex-start;
-        justify-content: flex-start;
-        place-self: start;
+        justify-content: space-between;
     }
-    .container{
+
+    .container {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -229,7 +295,9 @@
         justify-content: center;
         min-height: calc(100vh - 80px);
     }
-    .wrapper{
+
+    .wrapper {
+        width: 520px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -238,16 +306,18 @@
         border: 1px solid rgb(93, 93, 93);
         border-radius: 15px;
     }
-    .wrapper h1{
+
+    .wrapper h1 {
         font-size: 20px;
         letter-spacing: 5px;
         font-family: 'Orbitron', sans-serif;
     }
 
-    .title{
+    .title {
         margin: 0 15px;
     }
-    .box{
+
+    .box {
         display: flex;
         flex-direction: row;
         margin: 30px 0;
@@ -257,75 +327,98 @@
         width: 200px;
         background-color: rgb(206, 184, 158);
     }
-    .bottom-box{
+
+    .search-box {
+        display: flex;
+        flex-direction: row;
+        border-radius: 15px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(216, 156, 2);
+        margin: 0 10px;
+    }
+
+    .bottom-box {
         display: flex;
         flex-direction: row;
         margin: 10x 0;
     }
-    .head{
-        background: rgb(228, 228, 228);
+
+    .head {
+        background-color: rgb(62, 62, 61);
         width: 100%;
         border-radius: 15px 10px 0 0;
         padding: 5px;
+        letter-spacing: 2px;
     }
-    h1{
+
+    h1 {
         color: gray;
         padding: 5px;
     }
-    h1.header-title{
-        color: gray;
+
+    h1.header-title {
+        color: rgb(209, 209, 209);
         margin-top: 10px;
         padding: 5px;
-        border-bottom: 2px solid rgb(176, 176, 176);  
+        letter-spacing: 2px;
     }
-    h4{
+
+    h4 {
         margin: 10px 0;
     }
 
-    input{
+    input {
         color: black;
         border-radius: 15px;
         border: 1px solid gray;
         padding: 7px;
         margin-right: 15px;
-        background-color:rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);
     }
-     .button{
+
+    .button {
         padding: 5px 10px;
-        border-radius: 5px;
+        border-radius: 50px;
         border: .2px solid rgb(185, 185, 185);
         transition: .2s ease-in;
         cursor: pointer;
         font-weight: bold;
         background-color: rgb(234, 227, 215);
     }
-    .button:hover{
+
+    .button:hover {
         background-color: transparent;
         border-color: rgb(108, 108, 108);
         box-shadow: none;
     }
+
     .total {
         font-weight: bold;
         color: gray;
     }
-    .active{
+
+    .active {
         color: rgb(0, 0, 0);
         border-color: black;
-       background-color: rgb(216, 156, 2);
+        background-color: rgb(216, 156, 2);
     }
-    .bottom-box{
+
+    .bottom-box {
         display: flex;
         align-items: center;
         border: .2px solid rgb(151, 151, 151);
-        border-radius: 10px;
+        border-radius: 50px;
     }
-    select{
+
+    select {
         color: black;
         border: none;
         padding: 10px;
-        border-radius: 10px;
+        border-radius: 50px;
         background-color: rgb(206, 184, 158);
     }
+
     .bottom-container {
         display: flex;
         flex-direction: column;
@@ -333,14 +426,19 @@
         justify-content: center;
         margin: 15px 0;
     }
+
     /* filtered plates */
-    .filter-plate-inner-box{
+    .filter-plate-inner-box {
         display: flex;
         flex-wrap: wrap;
         font-size: 15px;
         font-weight: bold;
+        border: 1px solid rgb(137, 137, 137);
+        padding: 5px 15px;
+        border-radius: 50px;
     }
-    .bottom-wrapper{
+
+    .bottom-wrapper {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
@@ -349,52 +447,52 @@
         width: 100%;
         text-align: center;
     }
-    .reset-numbers{
+
+    .reset-numbers {
         background-color: rgb(175, 175, 175);
         border: .2px solid black;
     }
-    .registration{
-        width: 500px;
-    }
-/* filtered wrapper */
-    .filter-bottom-wrapper{
+
+
+    /* filtered wrapper */
+    .filter-bottom-wrapper {
         margin: .1px 0;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap-reverse;
         align-items: center;
         justify-content: center;
-        min-height: 100px;
+        width: 518px;
+        min-height: 130px;
         cursor: pointer;
         text-align: center;
         border-top: 1px solid rgb(186, 186, 186);
         border-bottom: 1px solid rgb(186, 186, 186);
-        background-color: rgba(192, 144, 104, 0.932);
-        padding: 5px;
-    } 
-       /*display on upper left corner  */
-    .error-handling-wrapper{
-        border-radius: 10px;
-        position: fixed;
-        padding: 5px 8px;
-        top: 0;
-        margin-left: 230px;
-        left: 0;
-        margin-top: 100px;
         background-color: rgb(206, 184, 158);
     }
 
-    .fail{
+    /*display on upper left corner  */
+    .error-handling-wrapper {
+        height: 15px;
+        padding-top: 5px;
+        font-weight: bold;
+    }
+
+    .fail {
         color: red;
-    } 
-    .success{
+    }
+
+    .success {
         color: green;
     }
-    .hide{
+
+    .hide {
         display: none;
     }
-    .hidden{
+
+    .hidden {
         display: none;
     }
+
     .list {
         margin: 10px;
         border: 1px solid black;
@@ -402,6 +500,7 @@
         padding: 5px 15px;
         background-color: rgb(216, 156, 2);
     }
+
     /* fitltered list */
     .filterList {
         margin: 10px;
@@ -410,14 +509,16 @@
         padding: 5px 15px;
         background-color: rgb(190, 190, 188);
     }
-    h1.town-name{
+
+    h1.town-name {
         color: gray;
         font-size: 16px;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
-    h1.town-select{
+
+    h1.town-select {
         font-family: 'Courier New', Courier, monospace;
         color: gray;
         font-size: 14px;
@@ -425,15 +526,58 @@
         text-align: center;
         text-justify: auto;
     }
-    .footer{
+
+    .footer {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-    }
-    .limit{
-        font-size: 13px;
+        align-items: flex-start;
         font-weight: bold;
-        color: grey;
     }
 
+    .limit {
+        font-size: 13px;
+        font-weight: bold;
+        color: rgb(29, 29, 29);
+    }
+
+}
+
+.dropdown-button {
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.search {
+    border: none;
+    color: white;
+    border-radius: 15px;
+    background-color: rgb(94, 94, 94);
+    transition: .3s ease;
+}
+
+.search:hover {
+    color: rgb(47, 47, 47);
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+}
+
+.ex-wrapper {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    text-align: start;
+}
+
+.ex-wrapper-inner {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 5px;
+    background-color: rgb(187, 187, 187);
+    padding: 5px;
+    border-radius: 15px;
 }

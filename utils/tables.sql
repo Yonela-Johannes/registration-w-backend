@@ -1,4 +1,12 @@
+CREATE TABLE towns (
+    ID SERIAL PRIMARY KEY,
+    town VARCHAR(15) NOT NULL,
+    regcode VARCHAR(15) NOT NULL
+);
+
 CREATE TABLE regnumbers (
     ID SERIAL PRIMARY KEY,
     regno VARCHAR(10) NOT NULL,
-)
+    town_id INT,
+    FOREIGN KEY (town_id) REFERENCES towns(ID) ON DELETE CASCADE
+);

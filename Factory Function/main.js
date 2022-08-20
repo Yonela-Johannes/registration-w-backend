@@ -1,63 +1,57 @@
 const RegistrationNumbers = () => {
     let number = ''
-    let selectedTownReg = []
-    const regex = /[a-zA-Z]{1,2}\s[0-9]{2,5}(\s|\-)?([0-9]{2,3})?[a-zA-Z]?/
+    const regex = /[a-zA-Z]{1,2}\s[0-9]{1,6}(\s|-)?([0-9]{2,3})?[a-zA-Z]?/
     const regisAbreviations = () => {
-        const indexes = ['ca', 'caa', 'wp', 'cy', 'cf', 'cn', 'cl', 'ck', 'cw', 'ct', 'caw', 'cf', 'cj']
+        const indexes = ['ca', , 'cy', 'cf', 'cn', 'cl', 'ck', 'cw', 'ct', 'cf', 'cj']
         return indexes.map(el => el.toUpperCase())
     }
-    const limit = (list) => list < 20
-
-    const setNumber = (reg) => {
-        number = reg.toUpperCase().trim()
-    }
-
+    const setNumber = (reg) => number = reg.toUpperCase().trim()
     const getRegNumber = () => number
-    const validNo = () => regex.test(number)
-    const getValidReg = () => validNo() ? number : ''
-
-    const regNumber = () => {
-        if (getRegNumber().includes(regisAbreviations())) {
-            console.log(regisAbreviations())
-            return true
-        } else {
-            return false
-        }
-    }
-
-    const checkPrefixAndAffix = () => regisAbreviations().includes(getRegNumber())
-
-    const checkReg = () => {
+    let validateNum = () => regex.test(number)
+    const getValidReg = () => validateNum() && getRegNumber().length > 12 ? '' : number
+    const checkRegistrationAbrev = () => {
         let introArray = false
         for (let i = 0; i < regisAbreviations().length; i++) {
             if (getRegNumber().startsWith(regisAbreviations()[i])) introArray = true
         }
         return introArray
     }
-
-    const setTownReg = (string, array) => {
-        selectedTownReg = array.filter(arr => arr.startsWith(string))
+    const checkRegistration = (dbreg) => dbreg === getValidReg()
+    const splitRegistration = () => getValidReg().split(' ')[0].toLowerCase()
+    const successHandler = (check) => {
+        let success = ''
+        if (check === false && validateNum() && checkRegistrationAbrev() && getRegNumber().length <= 12) {
+            success = `${getRegNumber()}, registration number added successfully`
+        } else if (check === true && getRegNumber().length <= 12 && checkRegistrationAbrev()) {
+            success = `${getRegNumber()}, already exist`
+        }
+        return success
     }
-
-    const setByTown = (string, array) => {
-        selectedTownReg = string !== "refresh" ? array.filter(arr => arr.startsWith(string.toUpperCase())) : array
+    const errorHandler = (check) => {
+        let error = ''
+        if (getRegNumber().length < 1) {
+            return error = 'Enter registration number!'
+        }
+        else if (getRegNumber().length > 12) {
+            return error = `${getRegNumber()} exceeds registration limit!`
+        }
+        else if (!validateNum() || getRegNumber().length > 12 || !checkRegistrationAbrev()) {
+            return error = "Please enter valid registration number!"
+        }
+        return error
     }
-
-    const getTownReg = () => selectedTownReg
 
     return {
-        limit,
         setNumber,
         regisAbreviations,
         getRegNumber,
-        validNo,
+        validateNum,
         getValidReg,
-        regNumber,
-        checkPrefixAndAffix,
-        checkReg,
-        setTownReg,
-        getTownReg,
-        setByTown,
+        checkRegistrationAbrev,
+        checkRegistration,
+        errorHandler,
+        successHandler,
+        splitRegistration,
     }
 }
 

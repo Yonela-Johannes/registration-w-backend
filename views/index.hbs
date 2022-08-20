@@ -16,21 +16,34 @@
 </head>
 
 <body>
+    <!-- Header and Logo -->
     <div class="header">
-        <!-- Header and Logo -->
-        <span class="reg">Registration</span><span class="app">App</span>
+        <div>
+            <a title="home" href="/">
+                <span class="header-wrapper"><span class="reg">Registration</span><span class="app">App</span></span>
+            </a>
+        </div>
+        <div class="search-box">
+            <form action="/search" method="POST">
+                <div class="input-container">
+                    <input type="text" name="search" placeholder="Enter registration" />
+                    <button type="sumbit" title="search registration" class="button search">Search</button>
+                </div>
+            </form>
+        </div>
     </div>
     <!-- main container -->
     <div class="main-container">
         <div class="container">
-            <div class="error-handling-wrapper">
-                <div class="error-handling">{{errorhandler}}</div>
-            </div>
             <!-- Main content wrapper -->
             <form action="/" method="POST">
                 <div class="wrapper">
                     <div class="head">
                         <h1 class="header-title">Registration</h1>
+                    </div>
+                    <div class="error-handling-wrapper">
+                        <div class="error-handling">{{errorhandler}}</div>
+                        <div class="success-handling">{{successhandler}}</div>
                     </div>
                     <div class="box">
                         <h4 class="title">Registration:</h4>
@@ -38,7 +51,7 @@
                             <input class="reg-input" placeholder="Enter registation number" type="text" name="text" />
                         </div>
                         <div class="buttons">
-                            <button type='submit' class="button add-number">Add</button>
+                            <button title="add registration" type='submit' class="button add-number">Add</button>
                         </div>
                     </div>
                     <!-- town list selection -->
@@ -46,53 +59,61 @@
                         <h1 class="town-select">
                             Towns
                         </h1>
-                        <select type="text" name="name" id="regno">
-                            <option disabled value="select town" selected>Select Town</option>
-                            <button class="button add-number" type="submit" value="ca">
-                                <option name="town" class="town" value="ca">Cape Town</option>
-                            </button>
-                            <option name="town" class="town" value="cl">Stellenbosch</option>
-                            <option name="town" class="town" value="cy">Bellville</option>
-                            <option name="town" class="town" value="cf">Kuils River</option>
-                            <option name="town" class="town" value="cn">Wellington</option>
-                            <option name="town" class="town" value="ck">Malmesbury</option>
-                            <option name="town" class="town" value="cw">Worcester</option>
-                            <option name="town" class="town" value="ct">Ceres</option>
-                            <option name="town" class="town" value="caw">George</option>
-                            <option value="refresh">Display All</option>
-                        </select>
-                    </div>
             </form>
-            <!-- Display town section -->
-            <div class="bottom-container">
-                <h1 class="town-name">Registration numbers</h1>
-                <div class="filter-bottom-wrapper">
-                    <div class="registration">
-                        {{#each registrationNumbers}}
-                        <div class="number-plate">
-                            <span class="filter-plate-inner-box">
-                                {{regno}}
-                            </span>
-                        </div>
+            <form action="/towns" method="POST">
+                <button class="dropdown-button">
+                    <select title="select town" type="text" name="name" id="regno">
+                        <option disabled value="select town" selected>Select Town</option>
+                        {{#each towns}}
+                        <option name="town" class="town" value="{{regcode}}">{{town}}</option>
                         {{/each}}
-                    </div>
+                </button>
+                </select>
+            </form>
+        </div>
+        <!-- Display town section -->
+        <div class="bottom-container">
+            <h1 class="town-name">TOWN: {{townName}}</h1>
+            <div class="filter-bottom-wrapper">
+                {{#each registrationNumbers}}
+                <div class="number-plate">
+                    <span title="registration" class="filter-plate-inner-box">{{regno}}</span>
                 </div>
-                <div class="bottom-wrapper">
-                    <h1 class="town-name display-name"></h1>
-                    <form action="/clear" method="POST">
-                        <div class="buttons reset-button">
-                            <button type="submit" class="button reset-numbers">Clear</button>
+                {{/each}}
+            </div>
+            <div class="bottom-wrapper">
+                <h1 class="town-name display-name"></h1>
+                <form action="/clear" method="POST">
+                    <div class="buttons reset-button">
+                        <button title="clear registrations" type="submit" class="button reset-numbers">Clear</button>
+                    </div>
+                </form>
+                <div class="footer">
+                    <span class="total">Registration Formats: <span class="counter"></span></span>
+                    <div class="ex-wrapper">
+                        <div class="ex-wrapper-inner">
+                            <span class="limit">CA 123</span>
+                            <span class="limit">CL 1234</span>
+                            <span class="limit">CF 12345</span>
                         </div>
-                    </form>
-                    <div class="footer">
-                        <span class="total">Total registrations: <span class="counter"></span></span>
-                        <span class="limit">limit: 20</span>
+                        <div class="ex-wrapper-inner">
+                            <span class="limit">CW 123-456</span>
+                            <span class="limit">CT 1234567</span>
+                            <span class="limit">CAW 12...</span>
+                        </div>
+                        <div class="ex-wrapper-inner">
+                            <span class="limit">CY 123-456</span>
+                            <span class="limit">CT 1234567</span>
+                            <span class="limit">CK 12...</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+    </div>
+    <script src="errors.js"></script>
 </body>
 
 </html>

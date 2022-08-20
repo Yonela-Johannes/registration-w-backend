@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "nodemon": "nodemon index.js",
-    "test": "mocha"
+    "test": "mocha /test/registration.test.js"
   },
-    "dependencies": {
+  "dependencies": {
     "assert": "^2.0.0",
     "body-parser": "^1.20.0",
     "chai": "^4.3.6",
@@ -26,10 +26,22 @@
     "pg-promise": "^10.11.1",
     "postgresql": "^0.0.1"
   },
-    "engines": {
+  "engines": {
     "node": "17.9.0"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yonela-Johannes/registration-w-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yonela-Johannes/registration-w-backend/issues"
+  },
+  "homepage": "https://github.com/Yonela-Johannes/registration-w-backend#readme"
 }
