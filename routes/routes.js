@@ -15,7 +15,7 @@ const Routes = (registrationDb, registration) => {
         const number = await registrationDb.getNumber(validatedReg)
         const checkRegistration = registration.checkRegistration(number)
         const id = registration.splitRegistration()
-        // registration.getValidReg() && registration.checkReg() ? await registrationDb.storeNumber(validatedReg, id) : ''
+        registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
         const numbers = await registrationDb.getNumbers()
         res.render('index', {
             townName: 'All Towns',
@@ -61,7 +61,6 @@ const Routes = (registrationDb, registration) => {
         res.render('index', {
             successhandler: 'All registration numbers are cleared'
         })
-        res.redirect('/')
     }
     const searchPost = async (req, res) => {
         const { search } = req.body
