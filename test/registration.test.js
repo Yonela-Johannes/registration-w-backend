@@ -1,5 +1,5 @@
 const RegistrationDb = require('../utils/db.js')
-const RegistrationNumbers = require('../Factory Function/main.js')
+const RegistrationNumbers = require('../factory-function/main.js')
 const assert = require('assert')
 const pgp = require('pg-promise')();
 
