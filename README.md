@@ -1,5 +1,7 @@
 # registration-numbers
-
+<br />
+[![Node.js CI](https://github.com/Yonela-Johannes/registration-w-backend/actions/workflows/node.js.yml/badge.svg)](https://github.com/Yonela-Johannes/registration-w-backend/actions/workflows/node.js.yml)
+<br />
 This is a Registrations number web app checks and validates the format of Western Cape <br />
 registrations numbes using *Regex*.<br />
 -*Code written in factory functions*<br />
