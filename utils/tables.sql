@@ -13,7 +13,7 @@ CREATE TABLE regnumbers (
 
 INSERT INTO towns (town, regcode) VALUES 
 ('Cape Town', 'ca'),
-('Stellenbosch', 'ca'),
+('Stellenbosch', 'cl'),
 ('Bellville', 'cy'),
 ('Kuils River', 'cf'),
 ('Wellington', 'cn'),
