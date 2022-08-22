@@ -15,13 +15,14 @@ const RegistrationDb = (db) => {
     const getTownName = async (regcode) => {
         const [result] = await db.many('SELECT id FROM towns WHERE regcode = $1', [regcode])
         const { id } = result
-        const town_result = await db.many('SELECT regno FROM regnumbers WHERE town_id = $1', [id])
+        const town_result = await db.manyOrOne('SELECT regno FROM regnumbers WHERE town_id = $1', [id])
         const { regno } = town_result
         return regno
     }
 
     const getTown = async (regcode) => {
-        const [result] = await db.many('SELECT town FROM towns WHERE regcode = $1;', [regcode])
+        const [result] = await db.manyOrNone('SELECT town FROM towns WHERE regcode = $1;', [regcode])
+        if (result === undefined) return
         const { town } = result
         return town
     }
@@ -30,6 +31,7 @@ const RegistrationDb = (db) => {
         if (regno?.length < 11) {
             const [result] = await db.any('SELECT id FROM towns WHERE regcode = $1', [regcode])
             const rows = await db.any(`SELECT * FROM regnumbers WHERE regno = $1;`, [regno])
+            if (result === undefined) return
             const { id } = result
             if (rows.length === 0) {
                 await db.any(`INSERT INTO regnumbers (regno, town_id) VALUES ($1, $2);`, [regno, id])
@@ -42,7 +44,7 @@ const RegistrationDb = (db) => {
         let towns = ''
         towns = await db.any(query)
         let result = towns.length < 1 ? [{ regno: `${town} has no registrations available.` }] : towns
-        return result
+        return town === undefined ? [{ regno: 'No town selected!' }] : result
     }
 
     const searchAll = async (searchprop) => {

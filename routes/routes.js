@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const RegistrationNumbers = require('../Factory Function/main.js')
+const RegistrationNumbers = require('../factory-function/main.js')
 const RegistrationDb = require('../utils/db.js')
 
 const registrationDb = RegistrationDb()
