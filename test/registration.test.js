@@ -139,6 +139,28 @@ describe('Registration Test', () => {
     });
     describe("Delete", () => {
         it('should delete all registrations', async () => {
+            // setting numbers to frontend
+            let registration = RegistrationNumbers()
+            let text = 'ca 123'
+            registration.setNumber(text)
+            let validatedReg = registration.getValidReg()
+            let id = registration.splitRegistration()
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            // setting second number
+            registration = RegistrationNumbers()
+            text = 'ct 123'
+            registration.setNumber(text)
+            validatedReg = registration.getValidReg()
+            id = registration.splitRegistration()
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            // setting third number
+            registration = RegistrationNumbers()
+            text = 'ct 123321'
+            registration.setNumber(text)
+            validatedReg = registration.getValidReg()
+            id = registration.splitRegistration()
+            registration.getValidReg() && registration.checkRegistrationAbrev() ? await registrationDb.storeNumber(validatedReg, id) : ''
+            // setting fourth number
             const numbers = await registrationDb.clear()
             let result = []
             assert.deepEqual(result, numbers)
